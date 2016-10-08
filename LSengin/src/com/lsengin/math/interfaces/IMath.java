@@ -9,6 +9,6 @@ public interface IMath {
 	static final float HALF_PI = PI/2;
 	static final float INV_PI = 1/PI;
 	static final float INV_TWO_PI = 1/TWO_PI;
-	static final float DEG_TO_RAD = ;
-	static final float RAD_TO_DEG;
+	static final float DEG_TO_RAD = 0;
+	static final float RAD_TO_DEG = 0;
 }
