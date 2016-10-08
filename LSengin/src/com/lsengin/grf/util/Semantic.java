@@ -1,0 +1,47 @@
+package com.lsengin.grf.util;
+
+public class Semantic {
+	public static class Attr {
+
+        public static final int POSITION = 1;
+        public static final int NORMAL = 2;
+        public static final int COLOR = 3;
+        public static final int INDICES = 4;
+        public static final int TEXCOORD = 5;
+        public static final int DRAW_ID = 6;
+    }
+
+    public static class Frag {
+
+        public static final int COLOR = 0;
+        public static final int RED = 0;
+        public static final int GREEN = 1;
+        public static final int BLUE = 2;
+        public static final int ALPHA = 0;
+    }
+
+    public static class Uniform {
+
+        public static final int MATERIAL = 0;
+        public static final int TRANSFORM0 = 1;
+        public static final int TRANSFORM1 = 2;
+        public static final int INDIRECTION = 3;
+        public static final int CONSTANT = 0;
+        public static final int PER_FRAME = 1;
+        public static final int PER_PASS = 2;
+        public static final int LIGHT = 3;
+        public static final int TEXTURE0 = 0;
+    }
+
+    public static class Object {
+
+        public static final int VAO = 0;
+        public static final int VBO = 1;
+        public static final int IBO = 2;
+        public static final int TEXTURE = 3;
+        public static final int SAMPLER = 4;
+        public static final int FBO = 5;
+        public static final int RBO = 6;
+        public static final int SIZE = 7;
+    }
+}
