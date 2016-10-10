@@ -1,8 +1,13 @@
 package com.lsengin.debug;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MethodStatistic extends StatisticEntry{
+
+	public MethodStatistic(String name) {
+		super(name);
+	}
 
 	@Override
 	public String toString() {
@@ -12,14 +17,19 @@ public class MethodStatistic extends StatisticEntry{
 
 	@Override
 	public List<StatisticEntry> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<StatisticEntry> entries = new ArrayList<StatisticEntry>();
+		entries.add(this);
+		return entries;
 	}
 
 	@Override
 	public void add(MeasureRequest mr) {
-		// TODO Auto-generated method stub
-		
+		update(mr);
+	}
+
+	@Override
+	public List<StatisticEntry> getChildren() {
+		return new ArrayList<StatisticEntry>();
 	}
 
 }

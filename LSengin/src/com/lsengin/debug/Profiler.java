@@ -58,6 +58,12 @@ public class Profiler {
 		}
 	}
 	
+	public static void printAll(IStatisticWriter sw){
+		for(Statistic s : statistics.values()){
+			sw.print(s);
+		}
+	}
+	
 	
 	
 	
@@ -80,4 +86,5 @@ public class Profiler {
 		}
 		
 	}
+	
 }

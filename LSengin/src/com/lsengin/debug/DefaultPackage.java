@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ClassStatistic extends StatisticEntry{
+public class DefaultPackage extends StatisticEntry {
 	protected HashMap<String, StatisticEntry> children = new HashMap<String, StatisticEntry>();
+
+	public DefaultPackage(String name) {
+		super("");
+	}
 	
-	public ClassStatistic(String name) {
-		super(name);
+	public String getFullPath(){
+		
+		return "";
 	}
 
 	@Override
@@ -20,7 +25,6 @@ public class ClassStatistic extends StatisticEntry{
 	@Override
 	public List<StatisticEntry> getAll() {
 		ArrayList<StatisticEntry> entries = new ArrayList<StatisticEntry>();
-		entries.add(this);
 		for(StatisticEntry se : children.values()){
 			entries.addAll(se.getAll());
 		}
@@ -30,32 +34,22 @@ public class ClassStatistic extends StatisticEntry{
 
 	@Override
 	public void add(MeasureRequest mr) {
-		//System.out.println("Call add with: "+mr.getClassName());
 		String[] path = mr.getClassName().split("\\.");
 		update(mr);
 		
-		String key = "";
-		if(path.length > 0 && path[0] != ""){
-			key = path[0];
-		}else{
-			key = mr.getMethodName();
-		}
-		
-		if(!children.containsKey(key)){
+		if(!children.containsKey(path[0])){
 			StatisticEntry e = null;
 			
-			if(path.length > 0 && path[0] != ""){
-				e = new ClassStatistic(path[0]);
+			if(path.length > 1 && !Character.isUpperCase(path[0].codePointAt(0))){
+				e = new PackageStatistic(path[0]);
 			}else{
-				e = new MethodStatistic(mr.methodName);
+				e = new ClassStatistic(path[0]);
 			}
-			e.setParent(this);
-			children.put(key, e);
+			children.put(path[0], e);
 		}
 		
 		mr.className = join(path, ".", 1);
-		//System.out.println("Key: "+key+"; Inserted: "+children.containsKey(key));
-		children.get(key).add(mr);
+		children.get(path[0]).add(mr);
 	}
 
 	@Override

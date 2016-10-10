@@ -1,0 +1,55 @@
+body, html{
+	width: 1024px;
+	margin-left: calc(50% - 512px);
+}
+
+table, th, tr, td{
+  border-collapse: collapse;
+}
+
+table{
+  margin-top: 20px;
+  width: 100%;
+  border: solid thin black;
+}
+
+table caption{
+  text-align: left;
+  line-height: 24px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 5px;
+  background-color: rgb(153,153,204);
+  border-top: solid thin black;
+  border-left: solid thin black;
+  border-right: solid thin black;
+}
+
+table caption span{
+  font-size: 16px;
+  text-align: right;
+  float:  right;
+  padding-right: 5px;
+}
+
+td{
+  padding-left: 5px;
+  border: solid thin black;
+}
+
+td:nth-child(1){
+  font-weight: bold;
+}
+
+tr:nth-child(even){
+  background-color: rgb(204,204,255);
+}
+
+tr:nth-child(odd){
+  background-color: rgb(204,204,204);
+}
+
+th{
+  background-color: rgb(100,100,100);
+  border-right: solid thin black;
+}
