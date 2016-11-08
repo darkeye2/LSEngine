@@ -14,6 +14,21 @@ public class MethodStatistic extends StatisticEntry{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int getFullClassCount() {
+		return 0;
+	}
+
+	@Override
+	public int getFullPackageCount() {
+		return 0;
+	}
+
+	@Override
+	public int getFullMethodCount() {
+		return 0;
+	}
 
 	@Override
 	public List<StatisticEntry> getAll() {

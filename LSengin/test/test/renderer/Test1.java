@@ -1,5 +1,6 @@
 package test.renderer;
 
+import com.lsengin.debug.Profiler;
 import com.lsengin.grf.core.RenderWindow;
 import com.lsengin.grf.core.Scene;
 import com.lsengin.grf.model.RawModel;
@@ -10,6 +11,7 @@ import com.lsengin.grf.texture.GLTexture;
 public class Test1 {
 
 	public static void main(String[] args) {
+		Profiler.start();
 		RenderWindow rw = new RenderWindow(800, 600);
 		Scene s = rw.getDefaultSceneGraph();
 		

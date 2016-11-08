@@ -15,6 +15,36 @@ public class DefaultPackage extends StatisticEntry {
 		
 		return "";
 	}
+	
+	@Override
+	public int getFullClassCount() {
+		int fc = this.getClassCount(); 
+		for(StatisticEntry e : children.values()){
+			fc += e.getFullClassCount();
+		}
+		
+		return fc;
+	}
+
+	@Override
+	public int getFullPackageCount() {
+		int fp = this.getPackageCount(); 
+		for(StatisticEntry e : children.values()){
+			fp += e.getFullPackageCount();
+		}
+		
+		return fp;
+	}
+
+	@Override
+	public int getFullMethodCount() {
+		int fm = this.getMethodCount(); 
+		for(StatisticEntry e : children.values()){
+			fm += e.getFullMethodCount();
+		}
+		
+		return fm;
+	}
 
 	@Override
 	public String toString() {
@@ -42,8 +72,10 @@ public class DefaultPackage extends StatisticEntry {
 			
 			if(path.length > 1 && !Character.isUpperCase(path[0].codePointAt(0))){
 				e = new PackageStatistic(path[0]);
+				this.subpackages++;
 			}else{
 				e = new ClassStatistic(path[0]);
+				this.classes++;
 			}
 			children.put(path[0], e);
 		}
@@ -56,5 +88,7 @@ public class DefaultPackage extends StatisticEntry {
 	public List<StatisticEntry> getChildren() {
 		return new ArrayList<StatisticEntry>(children.values());
 	}
+
+	
 
 }

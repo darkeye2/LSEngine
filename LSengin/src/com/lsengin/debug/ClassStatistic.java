@@ -16,6 +16,21 @@ public class ClassStatistic extends StatisticEntry{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int getFullClassCount() {
+		return this.getClassCount();
+	}
+
+	@Override
+	public int getFullPackageCount() {
+		return 0;
+	}
+
+	@Override
+	public int getFullMethodCount() {
+		return this.getMethodCount();
+	}
 
 	@Override
 	public List<StatisticEntry> getAll() {
@@ -46,8 +61,10 @@ public class ClassStatistic extends StatisticEntry{
 			
 			if(path.length > 0 && path[0] != ""){
 				e = new ClassStatistic(path[0]);
+				classes++;
 			}else{
 				e = new MethodStatistic(mr.methodName);
+				methods++;
 			}
 			e.setParent(this);
 			children.put(key, e);

@@ -7,8 +7,6 @@ import java.util.List;
 public class PackageStatistic extends StatisticEntry{
 	protected HashMap<String, StatisticEntry> children = new HashMap<String, StatisticEntry>();
 	
-	protected int containsClasses = 0;
-	
 	public PackageStatistic(String name){
 		super(name);
 	}
@@ -17,6 +15,36 @@ public class PackageStatistic extends StatisticEntry{
 	public String toString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public int getFullClassCount() {
+		int fc = this.getClassCount(); 
+		for(StatisticEntry e : children.values()){
+			fc += e.getFullClassCount();
+		}
+		
+		return fc;
+	}
+
+	@Override
+	public int getFullPackageCount() {
+		int fp = this.getPackageCount(); 
+		for(StatisticEntry e : children.values()){
+			fp += e.getFullPackageCount();
+		}
+		
+		return fp;
+	}
+
+	@Override
+	public int getFullMethodCount() {
+		int fm = this.getMethodCount(); 
+		for(StatisticEntry e : children.values()){
+			fm += e.getFullMethodCount();
+		}
+		
+		return fm;
 	}
 
 	@Override
@@ -40,8 +68,9 @@ public class PackageStatistic extends StatisticEntry{
 			
 			if(path.length > 1 && !Character.isUpperCase(path[0].codePointAt(0))){
 				e = new PackageStatistic(path[0]);
+				this.subpackages++;
 			}else{
-				this.containsClasses++;
+				this.classes++;
 				e = new ClassStatistic(path[0]);
 			}
 			e.setParent(this);

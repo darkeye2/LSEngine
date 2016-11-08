@@ -1,5 +1,5 @@
 package com.lsengin.math;
 
-public class Math {
+public class LSMath {
 
 }

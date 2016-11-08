@@ -3,6 +3,8 @@ package com.lsengin.grf.core;
 import com.jogamp.opengl.GL2ES3;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import com.lsengin.debug.HTMLStatisticWriter;
+import com.lsengin.debug.Profiler;
 import com.lsengin.grf.model.RawModel;
 
 public class Scene implements GLEventListener{
@@ -22,6 +24,10 @@ public class Scene implements GLEventListener{
 	@Override
 	public void dispose(GLAutoDrawable arg0) {
 		// TODO Auto-generated method stub
+		//TODO  remove this
+				Profiler.printAll(new HTMLStatisticWriter());
+				Profiler.stop();
+				System.out.println("Close");
 		System.exit(0);
 	}
 

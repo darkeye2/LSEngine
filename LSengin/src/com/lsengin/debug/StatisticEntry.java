@@ -15,6 +15,10 @@ public abstract class StatisticEntry {
 	
 	protected StatisticEntry parent = null;
 	
+	protected int classes = 0;
+	protected int subpackages = 0;
+	protected int methods = 0;
+	
 	public StatisticEntry(String name){
 		this.name = name;
 	}
@@ -60,6 +64,24 @@ public abstract class StatisticEntry {
 		
 		return parent.getFullPath()+"."+this.name;
 	}
+	
+	public int getClassCount(){
+		return this.classes;
+	}
+	
+	public abstract int getFullClassCount();
+	
+	public int getPackageCount(){
+		return this.subpackages;
+	}
+	
+	public abstract int getFullPackageCount();
+	
+	public int getMethodCount(){
+		return this.methods;
+	}
+	
+	public abstract int getFullMethodCount();
 	
 	public String getName(){
 		return this.name;

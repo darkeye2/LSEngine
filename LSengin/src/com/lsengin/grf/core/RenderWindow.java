@@ -15,6 +15,9 @@ import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.util.FPSAnimator;
+import com.lsengin.debug.Debugger;
+import com.lsengin.debug.HTMLStatisticWriter;
+import com.lsengin.debug.Profiler;
 
 public class RenderWindow implements WindowListener{
 	protected static int screenIdx = 0;
@@ -53,6 +56,9 @@ public class RenderWindow implements WindowListener{
 	private GLProfile glProfile = null;
 	
 	public RenderWindow(int w, int h, String glV){
+		if(Debugger.DEBUG)
+			Profiler.startMeasure(this.getClass(), "Constructor");
+		
 		//get screen
 		display = NewtFactory.createDisplay(null);
 		screen = NewtFactory.createScreen(display, screenIdx);
@@ -81,6 +87,9 @@ public class RenderWindow implements WindowListener{
 		
 		//init scene graph
 		initSG();
+		
+		if(Debugger.DEBUG)
+			Profiler.stopMeasure(this.getClass(), "Constructor");
 	}
 	
 	public RenderWindow(int w, int h){
@@ -197,11 +206,6 @@ public class RenderWindow implements WindowListener{
 	@Override
 	public void windowResized(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-	}
-	
-	
-	public static void main(String[] args){
-		new RenderWindow(0, 0);
 	}
 
 }
