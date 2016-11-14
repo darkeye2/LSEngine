@@ -1,9 +1,9 @@
 package test.debug;
 
-import com.lsengin.debug.ClassStatistic;
-import com.lsengin.debug.DefaultPackage;
-import com.lsengin.debug.HTMLStatisticWriter;
 import com.lsengin.debug.Profiler;
+import com.lsengin.debug.statistic.ClassStatistic;
+import com.lsengin.debug.statistic.DefaultPackage;
+import com.lsengin.debug.statistic.io.HTMLStatisticWriter;
 
 public class TestStatistic {
 	

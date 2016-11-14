@@ -3,6 +3,7 @@ package com.lsengin.debug;
 public class StatValue {
 	private long n = 1;
 	private double avg = 0;
+	private long outlier = 0;
 	
 	private long max = Long.MIN_VALUE;
 	private long min = Long.MAX_VALUE;
@@ -26,10 +27,20 @@ public class StatValue {
 		min = Math.min(min, x);
 		
 		//return if value is an outlier
-		if(n < 10){
+		if(n < 20){
 			return false;
 		}
-		return x>(avg*1.5);
+		
+		if(x>(avg*2.0)){
+			this.outlier++;
+			return true;
+		}
+		return false;
+	}
+	
+	public long getOutlierCount(){
+		
+		return this.outlier;
 	}
 	
 	public long getCount(){

@@ -1,5 +1,15 @@
 package com.lsengin.math;
 
-public class LSMath {
+import com.lsengin.math.interfaces.IMath;
+import com.lsengin.math.interfaces.IRandomNumberGenerator;
+
+public class LSMath implements IMath{
+	
+	public static IRandomNumberGenerator getMersenneTwisterRNG(){
+		
+		return new MersenneTwister();
+	}
+	
+	
 
 }

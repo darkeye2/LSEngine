@@ -3,8 +3,8 @@ package com.lsengin.grf.core;
 import com.jogamp.opengl.GL2ES3;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
-import com.lsengin.debug.HTMLStatisticWriter;
 import com.lsengin.debug.Profiler;
+import com.lsengin.debug.statistic.io.HTMLStatisticWriter;
 import com.lsengin.grf.model.RawModel;
 
 public class Scene implements GLEventListener{

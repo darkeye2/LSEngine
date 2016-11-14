@@ -5,9 +5,15 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.lsengin.debug.statistic.Statistic;
+import com.lsengin.debug.statistic.io.IStatisticWriter;
+
 public class Profiler {
-	protected static ArrayList<MeasureRequest> requests = new ArrayList<MeasureRequest>();
-	private static Object lock = new Object();
+	//protected static ArrayList<MeasureRequest> requests = new ArrayList<MeasureRequest>();
+	//private static Object lock = new Object();
+	
+	protected static ConcurrentLinkedQueue<MeasureRequest> requests = 
+			new ConcurrentLinkedQueue<MeasureRequest>();
 	
 	protected static HashMap<String, Statistic> statistics = new HashMap<String, Statistic>();
 	protected volatile static Statistic activeStatistic = null;
@@ -63,16 +69,18 @@ public class Profiler {
 	}
 	
 	private static void addRequest(MeasureRequest rq){
-		synchronized(lock){
+		/*synchronized(lock){
 			requests.add(rq);
-		}
+		}*/
+		requests.add(rq);
 	}
 	
 	private static MeasureRequest getRequest(){
-		synchronized(lock){
+		/*synchronized(lock){
 			//return requests.poll();
 			return requests.remove(0);
-		}
+		}*/
+		return requests.poll();
 	}
 	
 	public static void printAll(IStatisticWriter sw){
@@ -108,13 +116,24 @@ public class Profiler {
 				}
 			}
 			
-			handleRequests();
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			handleRequests();
+			boolean openRequestsFound = false;
+			
+			do{
+				
+				try {
+					Thread.sleep(300);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				if(requests.size() > 0){
+					openRequestsFound = true;
+				}
+				
+				handleRequests();
+				
+			}while(openRequestsFound);
+			
 			ready = true;
 		}
 		

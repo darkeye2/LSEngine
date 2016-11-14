@@ -1,7 +1,9 @@
-package com.lsengin.debug;
+package com.lsengin.debug.statistic;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.lsengin.debug.MeasureRequest;
 
 public class MethodStatistic extends StatisticEntry{
 

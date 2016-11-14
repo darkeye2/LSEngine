@@ -1,6 +1,9 @@
-package com.lsengin.debug;
+package com.lsengin.debug.statistic;
 
 import java.util.List;
+
+import com.lsengin.debug.MeasureRequest;
+import com.lsengin.debug.StatValue;
 
 public abstract class StatisticEntry {
 	protected StatValue value = new StatValue();

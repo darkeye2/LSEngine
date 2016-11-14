@@ -1,7 +1,7 @@
 package math;
 
-import com.lsengin.debug.HTMLStatisticWriter;
 import com.lsengin.debug.Profiler;
+import com.lsengin.debug.statistic.io.HTMLStatisticWriter;
 import com.lsengin.math.LSRandom;
 
 public class RandomTest {

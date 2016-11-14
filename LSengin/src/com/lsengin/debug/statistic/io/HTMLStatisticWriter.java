@@ -1,4 +1,4 @@
-package com.lsengin.debug;
+package com.lsengin.debug.statistic.io;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +9,12 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
+
+import com.lsengin.debug.statistic.ClassStatistic;
+import com.lsengin.debug.statistic.DefaultPackage;
+import com.lsengin.debug.statistic.PackageStatistic;
+import com.lsengin.debug.statistic.Statistic;
+import com.lsengin.debug.statistic.StatisticEntry;
 
 public class HTMLStatisticWriter implements IStatisticWriter {
 	protected FileWriter fw = null;

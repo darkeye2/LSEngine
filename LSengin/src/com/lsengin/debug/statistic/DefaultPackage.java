@@ -1,8 +1,10 @@
-package com.lsengin.debug;
+package com.lsengin.debug.statistic;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.lsengin.debug.MeasureRequest;
 
 public class DefaultPackage extends StatisticEntry {
 	protected HashMap<String, StatisticEntry> children = new HashMap<String, StatisticEntry>();

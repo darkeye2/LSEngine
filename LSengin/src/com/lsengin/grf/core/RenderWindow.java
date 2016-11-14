@@ -16,8 +16,8 @@ import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.util.FPSAnimator;
 import com.lsengin.debug.Debugger;
-import com.lsengin.debug.HTMLStatisticWriter;
 import com.lsengin.debug.Profiler;
+import com.lsengin.debug.statistic.io.HTMLStatisticWriter;
 
 public class RenderWindow implements WindowListener{
 	protected static int screenIdx = 0;
