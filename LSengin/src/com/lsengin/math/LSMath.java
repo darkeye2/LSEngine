@@ -10,6 +10,11 @@ public class LSMath implements IMath{
 		return new MersenneTwister();
 	}
 	
+	public static IRandomNumberGenerator getISAACRNG(){
+		
+		return new ISAACRandom();
+	}
+	
 	
 
 }

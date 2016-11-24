@@ -6,6 +6,18 @@ public class LSRandom{
 	private static IRandomNumberGenerator rng = new MersenneTwister();
 	private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 	
+	public static final String SIMPLE_ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+			+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	public static final String ALPHANUMERIC_ALPHABET = SIMPLE_ALPHABET 
+			+ "0123456789";
+	public static final String EXTENDED_ALPHABET = SIMPLE_ALPHABET
+			+ "@-_.;:,#";
+	
+	
+	public static void useCryptSafeRNG(){
+		LSRandom.rng = new ISAACRandom();
+	}
+	
 	public static void setRNG(IRandomNumberGenerator rng){
 		LSRandom.rng = rng;
 	}
