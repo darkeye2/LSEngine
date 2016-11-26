@@ -1,0 +1,11 @@
+Renderer:
+ - konkrete framework implementierung (OGL, DirectX, ...)
+ - bekommt RenderModel objekte von SceneGraph
+ - kennt nur rendering api
+ 
+ SceneGraph:
+  - render api unabhängig (verwaltet Modele)
+  - kennt den Renderer
+  - wird von allen an der grafik beteiligten systemen angesprochen
+  
+  
